@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Números Aleatórios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Gerador de Números Aleatórios entre 1 e 100</h1>
+    </header>
+
+    <section>
+        <!-- Espaço onde o número gerado será exibido -->
+        <p><strong>Número gerado: </strong><span id="numeroAleatorio">Clique no botão para gerar um número</span></p>
+        
+        <!-- Botão para gerar um novo número -->
+        <button id="botaoGerar">Gerar Novo Número</button>
+    </section>
+
+    <script>
+        // Pegando o botão e a área onde o número será exibido
+        const botaoGerar = document.getElementById("botaoGerar");
+        const numeroAleatorio = document.getElementById("numeroAleatorio");
+
+        // Função que faz a requisição ao PHP para pegar um novo número
+        function gerarNumeroAleatorio() {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "cad.php", true);  // Fazendo a requisição ao arquivo PHP
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Atualizando o número na página sem recarregar
+                    numeroAleatorio.textContent = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+
+        // Adicionando um evento de clique ao botão para gerar o número
+        botaoGerar.addEventListener("click", gerarNumeroAleatorio);
+    </script>
+</body>
+</html>

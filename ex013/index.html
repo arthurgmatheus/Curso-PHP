@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas (BRL para USD)</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Conversor de Moedas</h1>
+            <p>Converta de Real (BRL) para Dólar (USD) com a cotação atual.</p>
+            <form action="program.php" method="POST">
+                <label for="amount">Valor em Reais (BRL):</label>
+                <input type="number" name="amount" id="amount" step="0.01" required>
+                <button type="submit">Converter</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
